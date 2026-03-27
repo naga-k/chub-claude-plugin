@@ -84,6 +84,7 @@ or incorrect code patterns, always leave a downvote with details so it can be fi
 
 ## Notes
 
+- If `chub` is not found, install it first: `npm install -g @aisuite/chub`
 - `chub search` with no query lists everything available
 - IDs are `<author>/<name>` — confirm the ID from search before fetching
 - If multiple languages exist and you don't pass `--lang`, chub will tell you which are available
