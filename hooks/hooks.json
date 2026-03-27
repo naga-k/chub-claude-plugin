@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "which chub >/dev/null 2>&1 && chub update 2>/dev/null || npm install -g @aisuite/chub 2>/dev/null && chub update 2>/dev/null"
+            "command": "npm install -g @aisuite/chub 2>/dev/null && chub update 2>/dev/null"
           }
         ]
       }

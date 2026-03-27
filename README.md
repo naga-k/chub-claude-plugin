@@ -4,27 +4,24 @@ A Claude Code plugin for [Context Hub (chub)](https://github.com/andrewyng/conte
 
 ## Install
 
-### From marketplace
+Paste these into Claude Code:
 
 ```
 /plugin marketplace add naga-k/chub-claude-plugin
 /plugin install chub@chub-claude-plugin
+/reload-plugins
 ```
 
-### Manual
+The plugin automatically installs and updates the chub CLI and doc registry on each session start — no manual setup needed.
+
+### Manual (without marketplace)
 
 ```bash
 mkdir -p ~/.claude/skills/get-api-docs
 curl -o ~/.claude/skills/get-api-docs/SKILL.md https://raw.githubusercontent.com/naga-k/chub-claude-plugin/main/skills/get-api-docs/SKILL.md
 ```
 
-## Prerequisites
-
-Install the chub CLI:
-
-```bash
-npm install -g @aisuite/chub
-```
+Note: manual install doesn't include auto-install/update hooks. You'll need to install chub yourself: `npm install -g @aisuite/chub`
 
 ## What it does
 
@@ -36,6 +33,10 @@ Claude will:
 3. Write code using the fetched docs
 4. Annotate any gaps it discovers for future sessions
 5. Rate the docs so maintainers can improve them
+
+**On each session start**, the plugin:
+- Installs or upgrades the chub CLI to the latest version
+- Refreshes the doc registry (`chub update`) so you always have the latest docs
 
 ## License
 
