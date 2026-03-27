@@ -1,0 +1,16 @@
+{
+  "name": "chub-claude-plugin",
+  "owner": {
+    "name": "Naga Karumuri"
+  },
+  "metadata": {
+    "description": "Claude Code plugin for Context Hub (chub) — fetch curated API docs before writing code"
+  },
+  "plugins": [
+    {
+      "name": "chub",
+      "source": "./",
+      "description": "Fetch curated, versioned API docs via Context Hub (chub) before writing code"
+    }
+  ]
+}

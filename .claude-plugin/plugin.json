@@ -1,0 +1,12 @@
+{
+  "name": "chub",
+  "description": "Fetch curated, versioned API docs via Context Hub (chub) before writing code — so your agent uses current APIs instead of hallucinating",
+  "version": "1.0.0",
+  "author": {
+    "name": "Naga Karumuri"
+  },
+  "homepage": "https://github.com/andrewyng/context-hub",
+  "repository": "https://github.com/naga-k/chub-claude-plugin",
+  "license": "MIT",
+  "keywords": ["chub", "context-hub", "api-docs", "openai", "documentation"]
+}
