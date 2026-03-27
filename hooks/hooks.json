@@ -5,7 +5,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "npm install -g @aisuite/chub 2>/dev/null && chub update 2>/dev/null"
+            "command": "npx --yes @aisuite/chub update 2>/dev/null"
           }
         ]
       }

@@ -10,13 +10,16 @@ description: >
 
 # Get API Docs via chub
 
-When you need documentation for a library or API, fetch it with the `chub` CLI
+When you need documentation for a library or API, fetch it with `chub` via `npx`
 rather than guessing from training data. This gives you the current, correct API.
+
+Always use `npx --yes @aisuite/chub` to run chub — this ensures it's available
+without requiring a global install.
 
 ## Step 1 — Find the right doc ID
 
 ```bash
-chub search "<library name>" --json
+npx --yes @aisuite/chub search "<library name>" --json
 ```
 
 Pick the best-matching `id` from the results (e.g. `openai/chat`, `anthropic/sdk`,
@@ -25,7 +28,7 @@ Pick the best-matching `id` from the results (e.g. `openai/chat`, `anthropic/sdk
 ## Step 2 — Fetch the docs
 
 ```bash
-chub get <id> --lang py    # or --lang js, --lang ts
+npx --yes @aisuite/chub get <id> --lang py    # or --lang js, --lang ts
 ```
 
 Omit `--lang` if the doc has only one language variant — it will be auto-selected.
@@ -42,7 +45,7 @@ workaround, version quirk, or project-specific detail — save it so future sess
 start smarter:
 
 ```bash
-chub annotate <id> "Webhook verification requires raw body — do not parse before verifying"
+npx --yes @aisuite/chub annotate <id> "Webhook verification requires raw body — do not parse before verifying"
 ```
 
 Annotations are local, persist across sessions, and appear automatically on future
@@ -56,8 +59,8 @@ docs and prioritize improvements. Include a label and a brief comment explaining
 what was good or what needs fixing — specific feedback is the most valuable.
 
 ```bash
-chub feedback <id> up --label accurate "Clear examples, models are current"
-chub feedback <id> down --label outdated "Lists gpt-4o as latest but gpt-5.4 is out"
+npx --yes @aisuite/chub feedback <id> up --label accurate "Clear examples, models are current"
+npx --yes @aisuite/chub feedback <id> down --label outdated "Lists gpt-4o as latest but gpt-5.4 is out"
 ```
 
 Available labels: `outdated`, `inaccurate`, `incomplete`, `wrong-examples`,
@@ -71,20 +74,20 @@ or incorrect code patterns, always leave a downvote with details so it can be fi
 
 | Goal | Command |
 |------|---------|
-| List everything | `chub search` |
-| Find a doc | `chub search "stripe"` |
-| Exact id detail | `chub search stripe/api` |
-| Fetch Python docs | `chub get stripe/api --lang py` |
-| Fetch JS docs | `chub get openai/chat --lang js` |
-| Save to file | `chub get anthropic/sdk --lang py -o docs.md` |
-| Fetch multiple | `chub get openai/chat stripe/api --lang py` |
-| Save a note | `chub annotate stripe/api "needs raw body"` |
-| List notes | `chub annotate --list` |
-| Rate a doc | `chub feedback stripe/api up` |
+| List everything | `npx --yes @aisuite/chub search` |
+| Find a doc | `npx --yes @aisuite/chub search "stripe"` |
+| Exact id detail | `npx --yes @aisuite/chub search stripe/api` |
+| Fetch Python docs | `npx --yes @aisuite/chub get stripe/api --lang py` |
+| Fetch JS docs | `npx --yes @aisuite/chub get openai/chat --lang js` |
+| Save to file | `npx --yes @aisuite/chub get anthropic/sdk --lang py -o docs.md` |
+| Fetch multiple | `npx --yes @aisuite/chub get openai/chat stripe/api --lang py` |
+| Save a note | `npx --yes @aisuite/chub annotate stripe/api "needs raw body"` |
+| List notes | `npx --yes @aisuite/chub annotate --list` |
+| Rate a doc | `npx --yes @aisuite/chub feedback stripe/api up` |
 
 ## Notes
 
-- If `chub` is not found, install it first: `npm install -g @aisuite/chub`
-- `chub search` with no query lists everything available
+- All commands use `npx --yes @aisuite/chub` — no global install required
+- `search` with no query lists everything available
 - IDs are `<author>/<name>` — confirm the ID from search before fetching
 - If multiple languages exist and you don't pass `--lang`, chub will tell you which are available
